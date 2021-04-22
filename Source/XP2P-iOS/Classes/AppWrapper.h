@@ -11,7 +11,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "661840db";
+static const char * VIDEOSDKVERSION = "v2.0.x+git.fdabfb40";
 
 typedef enum {
     XP2PTypeClose   = 1000, //数据传输完成
@@ -30,7 +30,8 @@ typedef enum {
     XP2PERRUNINIT  = -1003, //数据接收/发送服务未初始化
     XP2PERRENCRYPT = -1004, //数据加密失败
     XP2PERRTIMEOUT = -1005, //请求超时
-    XP2PERRERROR = -1006 //请求错误
+    XP2PERRERROR    = -1006, //请求错误
+    XP2PERRVERSION  = -1007 //设备版本过低，请升级设备固件
 } XP2PErrCode;
 
 typedef const char* (*msg_handle_t)(const char *id, XP2PType type, const char* msg);
