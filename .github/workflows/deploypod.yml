@@ -1,0 +1,26 @@
+name: iOS pod CI
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-and-deploy:
+    runs-on: macos-10.15
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Deploy to CocoapodsPre
+      run: |
+        set -eo pipefail
+        
+        VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
+        echo $VERSION
+        export LIB_VERSION=$VERSION
+                
+        pod lib lint --verbose --allow-warnings --use-libraries
+        pod trunk push --verbose --allow-warnings --use-libraries
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
