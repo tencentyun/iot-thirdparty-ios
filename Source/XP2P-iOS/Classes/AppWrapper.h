@@ -11,7 +11,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "v2.0.x+git.325c36e8";
+static const char * VIDEOSDKVERSION = "v2.0.x+git.d49ca71a";
 
 typedef enum {
     XP2PTypeClose   = 1000, //数据传输完成
@@ -21,6 +21,11 @@ typedef enum {
     XP2PTypeSaveFileOn  = 8000, //获取保存音视频流开关状态
     XP2PTypeSaveFileUrl = 8001 //获取音视频流保存路径
 } XP2PType;
+
+typedef enum {
+    XP2PVoiceServiceClose   = 2000, //语音对讲服务关闭
+    XP2PStreamServiceClose  = 2001, //音视频流接收服务关闭
+} XP2PCloseSubType;
 
 typedef enum {
     XP2PERRNONE   = 0, //成功
