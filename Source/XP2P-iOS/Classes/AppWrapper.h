@@ -11,20 +11,22 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "v2.0.1+git.d49ca71a";
+static const char * VIDEOSDKVERSION = "v3.0.x+git.1d80aa10";
 
 typedef enum {
     XP2PTypeClose   = 1000, //数据传输完成
     XP2PTypeLog     = 1001, //日志输出
     XP2PTypeCmd     = 1002, //command json
     XP2PTypeDisconnect  = 1003, //p2p链路断开
+    XP2PTypeDetectReady  = 1004, //p2p链路初始化成功
+    XP2PTypeDetectError  = 1005, //p2p链路初始化失败
     XP2PTypeSaveFileOn  = 8000, //获取保存音视频流开关状态
     XP2PTypeSaveFileUrl = 8001 //获取音视频流保存路径
 } XP2PType;
 
 typedef enum {
     XP2PVoiceServiceClose   = 2000, //语音对讲服务关闭
-    XP2PStreamServiceClose  = 2001, //音视频流接收服务关闭
+    XP2PStreamServiceClose  = 2001  //音视频流接收服务关闭
 } XP2PCloseSubType;
 
 typedef enum {
@@ -36,11 +38,23 @@ typedef enum {
     XP2PERRENCRYPT = -1004, //数据加密失败
     XP2PERRTIMEOUT = -1005, //请求超时
     XP2PERRERROR    = -1006, //请求错误
-    XP2PERRVERSION  = -1007 //设备版本过低，请升级设备固件
+    XP2PERRVERSION  = -1007, //设备版本过低，请升级设备固件
+    XP2PERRAPPLICATION  = -1008, //application初始化失败
+    XP2PERRREQUEST  = -1009, //request初始化失败
+    XP2PERRDETECTNOREADY  = -1010 //p2p探测未完成
 } XP2PErrCode;
 
 typedef const char* (*msg_handle_t)(const char *id, XP2PType type, const char* msg);
 typedef void (*av_recv_handle_t)(const char *id, uint8_t* recv_buf, size_t recv_len);
+
+/**
+ * @brief 设置stun服务器
+ *
+ * @param stun_server: stun服务器地址
+ * @param stun_port: stun服务器端口
+ * @return 无返回值
+ */
+void setStunServerToXp2p(const char *server, uint16_t port);
 
 /**
  * @brief 设置回调函数
