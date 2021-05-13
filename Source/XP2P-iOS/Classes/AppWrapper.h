@@ -11,7 +11,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "v2.0.x+git.43a149e0";
+static const char * VIDEOSDKVERSION = "v2.0.x+git.631159f7";
 
 typedef enum {
     XP2PTypeClose   = 1000, //数据传输完成
@@ -46,15 +46,6 @@ typedef enum {
 
 typedef const char* (*msg_handle_t)(const char *id, XP2PType type, const char* msg);
 typedef void (*av_recv_handle_t)(const char *id, uint8_t* recv_buf, size_t recv_len);
-
-/**
- * @brief 设置stun服务器
- *
- * @param stun_server: stun服务器地址
- * @param stun_port: stun服务器端口
- * @return 无返回值
- */
-void setStunServerToXp2p(const char *server, uint16_t port);
 
 /**
  * @brief 设置回调函数
