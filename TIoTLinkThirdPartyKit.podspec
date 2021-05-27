@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author           = { 'tonychanchen@gmail.com' => 'tonychanchen@gmail.com' }
   s.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '10.0'     
+  s.ios.deployment_target = '9.0'     
 #  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-all_load' }
 #  s.static_framework = true
   s.default_subspec = 'Default'
