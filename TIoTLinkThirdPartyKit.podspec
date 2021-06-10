@@ -64,4 +64,12 @@ Pod::Spec.new do |s|
     ss.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   end
   
+  s.subspec 'IJKPlayerSSL-iOS' do |ss|
+    ss.vendored_frameworks   = 'Source/IJKPlayer-iOS/IJKMediaFrameworkWithSSL.framework'
+    ss.frameworks  = "AudioToolbox", "AVFoundation", "CoreGraphics", "CoreMedia", "CoreVideo", "MobileCoreServices", "OpenGLES", "QuartzCore", "VideoToolbox", "Foundation", "UIKit", "MediaPlayer"
+    ss.libraries   = "bz2", "z", "stdc++"
+    ss.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    ss.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  end
+  
 end
