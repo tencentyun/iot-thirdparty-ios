@@ -29,3 +29,4 @@
 ## Faac-iOS
 
 * 来源：https://github.com/hardman/AWLive/tree/master/clibs/3th-party
+* 用于 pcm 软编码为 aac ，实现音频对讲
