@@ -1,0 +1,67 @@
+name: iOS CI
+
+on:
+  push:
+    paths-ignore: # 有時候不想要改個文档也触发 github actions
+      - 'doc/**'
+      - '**.md'
+      - 'LICENSE'
+    tags-ignore:  # 屏蔽掉发release打tag事件
+      - '*'
+    branches:
+      - '*'
+
+jobs:
+  Build:
+    runs-on: macos-10.15
+    steps:
+    - uses: actions/checkout@v2
+        
+    - uses: Faac-iOS
+      id: Faac-iOS-has-changed-path
+      with:
+        paths: Source/Faac-iOS
+
+    - if: steps.Faac-iOS-has-changed-path.outputs.changed == 'true'
+      run: echo 'Faac-iOS has changed!'
+    
+    
+    
+    - uses: IJKPlayer-iOS
+      id: IJKPlayer-iOS-has-changed-path
+      with:
+        paths: Source/IJKPlayer-iOS
+
+    - if: steps.IJKPlayer-iOS-has-changed-path.outputs.changed == 'true'
+      run: echo 'IJKPlayer-iOS has changed!'
+    
+    
+    
+    - uses: TPNS-iOS
+      id: TPNS-iOS-has-changed-path
+      with:
+        paths: Source/TPNS-iOS
+
+    - if: steps.TPNS-iOS-has-changed-path.outputs.changed == 'true'
+      run: echo 'TPNS-iOS has changed!'
+    
+    
+    - uses: WechatOpenSDK_NoPay
+      id: WechatOpenSDK_NoPay-has-changed-path
+      with:
+        paths: Source/WechatOpenSDK_NoPay
+
+    - if: steps.WechatOpenSDK_NoPay-has-changed-path.outputs.changed == 'true'
+      run: echo 'WechatOpenSDK_NoPay or tests/ has changed!'
+      
+      
+    - uses: XP2P-iOS
+      id: XP2P-iOS-has-changed-path
+      with:
+        paths: Source/XP2P-iOS
+
+    - if: steps.XP2P-iOS-has-changed-path.outputs.changed == 'true'
+      run: echo 'XP2P-iOS has changed!'
+      
+      
+      
