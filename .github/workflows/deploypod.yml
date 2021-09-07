@@ -67,7 +67,7 @@ jobs:
         echo $version
 
         export LIB_VERSION=$version
-        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => => \"$temptag\" }#g" TIoTLinkKit_IJKPlayer.podspec
+        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_IJKPlayer.podspec
                 
         pod lib lint TIoTLinkKit_IJKPlayer.podspec --verbose --allow-warnings --use-libraries
         pod trunk push TIoTLinkKit_IJKPlayer.podspec --verbose --allow-warnings --use-libraries
