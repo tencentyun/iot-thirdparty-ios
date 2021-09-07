@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
         
-    - uses: Faac-iOS
+    - uses: FaaciOS
       id: Faac-iOS-has-changed-path
       with:
         paths: Source/Faac-iOS
@@ -27,7 +27,7 @@ jobs:
     
     
     
-    - uses: IJKPlayer-iOS
+    - uses: IJKPlayeriOS
       id: IJKPlayer-iOS-has-changed-path
       with:
         paths: Source/IJKPlayer-iOS
@@ -37,7 +37,7 @@ jobs:
     
     
     
-    - uses: TPNS-iOS
+    - uses: TPNSiOS
       id: TPNS-iOS-has-changed-path
       with:
         paths: Source/TPNS-iOS
@@ -46,7 +46,7 @@ jobs:
       run: echo 'TPNS-iOS has changed!'
     
     
-    - uses: WechatOpenSDK_NoPay
+    - uses: WechatOpenSDKNoPay
       id: WechatOpenSDK_NoPay-has-changed-path
       with:
         paths: Source/WechatOpenSDK_NoPay
@@ -55,7 +55,7 @@ jobs:
       run: echo 'WechatOpenSDK_NoPay or tests/ has changed!'
       
       
-    - uses: XP2P-iOS
+    - uses: XP2PiOS
       id: XP2P-iOS-has-changed-path
       with:
         paths: Source/XP2P-iOS
