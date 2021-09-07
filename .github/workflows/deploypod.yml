@@ -12,15 +12,139 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     
-    - name: Deploy to CocoapodsPre
+    - name: Get Pod Version
+      run: |
+        rtt=$(git describe --tags `git rev-list --tags --max-count=1`)
+        echo "curr_tag=$rtt" >> $GITHUB_ENV
+        
+#faac-v2.2.2
+#ijkplayer-v2.2.2
+#tpns-v2.2.2
+#wechat-v2.2.2
+#xp2p-v2.2.2
+#xp2p-v2.2.2-beta.1
+
+    - name: Deploy Faac SDK
+      if: ${{contains(env.curr_tag, 'faac')}}
       run: |
         set -eo pipefail
         
-        VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
-        echo $VERSION
-        export LIB_VERSION=$VERSION
+        temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        vtaglist=(${temptag//-/ })
+        beta=${vtaglist[2]}
+        version=${vtaglist[1]}
+        if [ ${#beta} -gt 0 ]
+        then
+            version=${vtaglist[1]}-$beta
+        fi
+        version=${version#*v}
+        echo $version
+
+        export LIB_VERSION=$version
+        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_Faac.podspec
                 
-        pod lib lint --verbose --allow-warnings --use-libraries
-        pod trunk push --verbose --allow-warnings --use-libraries
+        pod lib lint TIoTLinkKit_Faac.podspec --verbose --allow-warnings --use-libraries
+        pod trunk push TIoTLinkKit_Faac.podspec --verbose --allow-warnings --use-libraries
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
+    
+    
+    
+    - name: Deploy Video SDK
+      if: ${{contains(env.curr_tag, 'ijkplayer')}}
+      run: |
+        set -eo pipefail
+        
+        temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        vtaglist=(${temptag//-/ })
+        beta=${vtaglist[2]}
+        version=${vtaglist[1]}
+        if [ ${#beta} -gt 0 ]
+        then
+            version=${vtaglist[1]}-$beta
+        fi
+        version=${version#*v}
+        echo $version
+
+        export LIB_VERSION=$version
+        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => => \"$temptag\" }#g" TIoTLinkKit_IJKPlayer.podspec
+                
+        pod lib lint TIoTLinkKit_IJKPlayer.podspec --verbose --allow-warnings --use-libraries
+        pod trunk push TIoTLinkKit_IJKPlayer.podspec --verbose --allow-warnings --use-libraries
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
+
+
+    - name: Deploy Video SDK
+      if: ${{contains(env.curr_tag, 'tpns')}}
+      run: |
+        set -eo pipefail
+        
+        temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        vtaglist=(${temptag//-/ })
+        beta=${vtaglist[2]}
+        version=${vtaglist[1]}
+        if [ ${#beta} -gt 0 ]
+        then
+            version=${vtaglist[1]}-$beta
+        fi
+        version=${version#*v}
+        echo $version
+
+        export LIB_VERSION=$version
+        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_TPNS.podspec
+                
+        pod lib lint TIoTLinkKit_TPNS.podspec --verbose --allow-warnings --use-libraries
+        pod trunk push TIoTLinkKit_TPNS.podspec --verbose --allow-warnings --use-libraries
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
+        
+        
+    - name: Deploy Video SDK
+      if: ${{contains(env.curr_tag, 'wechat')}}
+      run: |
+        set -eo pipefail
+        
+        temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        vtaglist=(${temptag//-/ })
+        beta=${vtaglist[2]}
+        version=${vtaglist[1]}
+        if [ ${#beta} -gt 0 ]
+        then
+            version=${vtaglist[1]}-$beta
+        fi
+        version=${version#*v}
+        echo $version
+
+        export LIB_VERSION=$version
+        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_WechatOpenSDK.podspec
+                
+        pod lib lint TIoTLinkKit_WechatOpenSDK.podspec --verbose --allow-warnings --use-libraries
+        pod trunk push TIoTLinkKit_WechatOpenSDK.podspec --verbose --allow-warnings --use-libraries
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
+        
+        
+    - name: Deploy Video SDK
+      if: ${{contains(env.curr_tag, 'xp2p')}}
+      run: |
+        set -eo pipefail
+        
+        temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        vtaglist=(${temptag//-/ })
+        beta=${vtaglist[2]}
+        version=${vtaglist[1]}
+        if [ ${#beta} -gt 0 ]
+        then
+            version=${vtaglist[1]}-$beta
+        fi
+        version=${version#*v}
+        echo $version
+
+        export LIB_VERSION=$version
+        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_XP2P.podspec
+                
+        pod lib lint TIoTLinkKit_XP2P.podspec --verbose --allow-warnings --use-libraries
+        pod trunk push TIoTLinkKit_XP2P.podspec --verbose --allow-warnings --use-libraries
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
