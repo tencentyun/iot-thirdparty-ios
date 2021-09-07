@@ -1,39 +1,36 @@
 # TIoTLinkThirdPartyKit
 
-[![CI Status](https://img.shields.io/travis/tonychanchen@gmail.com/TIoTThridSDK.svg?style=flat)](https://travis-ci.org/tonychanchen@gmail.com/TIoTLinkThirdPartyKit)
-[![Version](https://img.shields.io/cocoapods/v/TIoTThridSDK.svg?style=flat)](https://cocoapods.org/pods/TIoTLinkThirdPartyKit)
-[![License](https://img.shields.io/cocoapods/l/TIoTThridSDK.svg?style=flat)](https://cocoapods.org/pods/TIoTLinkThirdPartyKit)
-[![Platform](https://img.shields.io/cocoapods/p/TIoTThridSDK.svg?style=flat)](https://cocoapods.org/pods/TIoTLinkThirdPartyKit)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-## Installation
+## 安装
 
 TIoTThridSDK is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'TIoTLinkThirdPartyKit'
-pod 'TIoTLinkThirdPartyKit/TPNS-iOS'
-pod 'TIoTLinkThirdPartyKit/WechatOpenSDK_NoPay'
-pod 'TIoTLinkThirdPartyKit/IJKPlayer-iOS'
-pod 'TIoTLinkThirdPartyKit/XP2P-iOS'
-pod 'TIoTLinkThirdPartyKit/Faac-iOS'
+pod 'TIoTLinkKit_Faac'
+pod 'TIoTLinkKit_IJKPlayer'
+pod 'TIoTLinkKit_TPNS'
+pod 'TIoTLinkKit_WechatOpenSDK'
+pod 'TIoTLinkKit_XP2P'
 ```
 
-## Author
+产品线打包方式
 
-tonychanchen@gmail.com
-
+```ruby
+#faac-v2.2.2
+#ijkplayer-v2.2.2
+#tpns-v2.2.2
+#wechat-v2.2.2
+#xp2p-v2.2.2
+#xp2p-v2.2.2-beta.1
 ## License
+```
 
-TIoTThridSDK is available under the MIT license. See the LICENSE file for more info.
 
+产品线发布
 
+```ruby
 pod lib lint --verbose --allow-warnings --use-libraries
         
 pod trunk push --verbose --allow-warnings --use-libraries
+```
