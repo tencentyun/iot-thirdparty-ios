@@ -11,7 +11,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.3.0+git.e52fd78c";
+static const char * VIDEOSDKVERSION = "2.2.x+git.0587ed69";
 
 typedef enum
 {
@@ -204,6 +204,13 @@ int getCommandRequestWithSync(const char *id, const char *command, char **buf, s
  * @return 0 为成功
  */
 int getCommandRequestWithAsync(const char *id, const char *command);
+
+
+/**
+ * @brief 调试接口，便于通过播放器请求httpflv时，保存拉取的原始流数据就行分析
+ * @param id:目标camera在app端的唯一标识符
+ */
+void startRecordPlayerStream(const char *id);
 
 #ifdef __cplusplus
 }
