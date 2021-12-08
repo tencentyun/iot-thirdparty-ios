@@ -11,7 +11,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.3.x+git.944a79fe";
+static const char * VIDEOSDKVERSION = "2.3.x+git.cd6682bf";
 
 typedef enum
 {
@@ -124,9 +124,12 @@ int stopAvRecvService(const char *id, void *req);
  * @param xp2p_info: xp2p信息
  * @return 0 为成功
  */
-int startServiceWithXp2pInfo(const char *id, const char *product_id, const char *device_name,
-                             const char *xp2p_info);
+int startServiceWithXp2pInfo(const char *id, const char *product_id, const char *device_name);
 
+/**
+ * 延迟设置xp2pinfo,节省start时间
+ */
+int setDeviceXp2pInfo(const char *id, const char *xp2p_info);
 /**
  * @brief 获取本地代理url
  *
