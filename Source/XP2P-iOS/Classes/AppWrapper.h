@@ -11,7 +11,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.3.x+git.e64a338b";
+static const char * VIDEOSDKVERSION = "2.3.x+git.7695ac8f";
 
 typedef enum
 {
@@ -60,15 +60,17 @@ typedef enum
 
 typedef const char *(*msg_handle_t)(const char *id, XP2PType type, const char *msg);
 typedef void (*av_recv_handle_t)(const char *id, uint8_t *recv_buf, size_t recv_len);
+typedef char *(*device_data_recv_handle_t)(const char *id, uint8_t *recv_buf, size_t recv_len);
 
 /**
  * @brief 设置回调函数
  *
  * @param recv_handle: 音视频数据回调
  * @param msg_handle: 控制类消息回调
+ * @param device_data_handle: 设备端向App发送消息的回调
  * @return 无返回值
  */
-void setUserCallbackToXp2p(av_recv_handle_t recv_handle, msg_handle_t msg_handle);
+void setUserCallbackToXp2p(av_recv_handle_t recv_handle, msg_handle_t msg_handle, device_data_recv_handle_t device_data_handle);
 
 /**
  * @brief 发送信令消息给camera设备并等待回复，同步阻塞方式
