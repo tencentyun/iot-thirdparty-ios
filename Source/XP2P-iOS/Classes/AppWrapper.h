@@ -11,7 +11,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.3.5+git.5f411024";
+static const char * VIDEOSDKVERSION = "2.3.x+git.08fae55e";
 
 typedef enum
 {
@@ -131,6 +131,19 @@ int stopAvRecvService(const char *id, void *req);
 int startService(const char *id, const char *product_id, const char *device_name);
 
 /**
+ * @brief 初始化xp2p服务
+ *
+ * @param id: 目标camera在app端的唯一标识符
+ * @param product_id: 产品ID
+ * @param device_name: 设备名称
+ * @param remote_host: 局域网设备ip
+ * @param remote_port: 局域网设备端口
+ * @return 0 为成功
+ */
+int startLanService(const char *id, const char *product_id, const char *device_name,
+                    const char *remote_host, const char *remote_port);
+
+/**
  * 延迟设置xp2pinfo,节省start时间
  */
 int setDeviceXp2pInfo(const char *id, const char *xp2p_info);
@@ -141,6 +154,22 @@ int setDeviceXp2pInfo(const char *id, const char *xp2p_info);
  * @return 本地代理url
  */
 const char *delegateHttpFlv(const char *id);
+
+/**
+ * @brief 获取局域网url
+ *
+ * @param id: 目标camera在app端的唯一标识符
+ * @return 局域网url
+ */
+const char *getLanUrl(const char *id);
+
+/**
+ * @brief 获取局域网url
+ *
+ * @param id: 目标camera在app端的唯一标识符
+ * @return 局域网本地代理端口号
+ */
+int getLanProxyPort(const char *id);
 
 /**
  * @brief 启动向camera设备发送语音或自定义数据服务，异步非阻塞方式
