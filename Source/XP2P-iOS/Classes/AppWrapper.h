@@ -11,7 +11,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.5.x+git.298b8904";
+static const char * VIDEOSDKVERSION = "2.4.x+git.c61e114b";
 
 typedef enum
 {
@@ -217,6 +217,14 @@ int dataSend(const char *id, uint8_t *data, size_t len);
  * @return 0 为成功
  */
 void stopService(const char *id);
+
+/**
+ * @brief 日志开关
+ *
+ * @param console: 是否输出日志到控制台
+ * @param file: 是否输出日志到文件
+ */
+void setLogEnable(bool console, bool file);
 
 /*================================废弃接口=======================================*/
 /**
