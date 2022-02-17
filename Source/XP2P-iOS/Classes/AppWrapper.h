@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.abcdda19";
+static const char * VIDEOSDKVERSION = "2.4.x+git.cd0945e0";
 
 typedef enum
 {
@@ -259,6 +259,16 @@ IPCLIBRARY_API int getCommandRequestWithSync(const char *id, const char *command
  */
 IPCLIBRARY_API int getCommandRequestWithAsync(const char *id, const char *command);
 
+
+
+/**
+ * @brief 获取当前发送链路的连接模式：0 无效；62 直连；63 转发
+ *
+ * @param id:目标camera在app端的唯一标识符
+ * @param command:字符格式命令
+ * @return 0 为成功
+ */
+IPCLIBRARY_API int getStreamLinkMode(const char *id);
 
 /**
  * @brief 调试接口，便于通过播放器请求httpflv时，保存拉取的原始流数据就行分析
