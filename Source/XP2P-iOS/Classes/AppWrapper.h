@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.eb1bcbb2";
+static const char * VIDEOSDKVERSION = "2.4.x+git.75b1af37";
 
 typedef enum
 {
@@ -277,6 +277,11 @@ IPCLIBRARY_API int getStreamLinkMode(const char *id);
  */
 IPCLIBRARY_API void startRecordPlayerStream(const char *id);
 
+/**
+ * @brief 获取发送对讲流缓存大小，可根据此接口判断 当发现p2p的水线超过一定值时，降低视频码率。送入体积较大的I帧、网络波动等都会影响水位值
+ * @param id:目标camera在app端的唯一标识符
+ */
+IPCLIBRARY_API size_t getStreamBufSize(const char *id);
 #ifdef __cplusplus
 }
 #endif
