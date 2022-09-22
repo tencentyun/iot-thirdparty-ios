@@ -19,6 +19,7 @@ jobs:
         
 #faac-v2.2.2
 #ijkplayer-v2.2.2
+#soundtouch-v0.0.1
 #tpns-v2.2.2
 #wechat-v2.2.2
 #xp2p-v2.2.2
@@ -175,3 +176,26 @@ jobs:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
     
   
+    - name: Deploy soundtouch SDK
+      if: ${{contains(env.curr_tag, 'soundtouch')}}
+      run: |
+        set -eo pipefail
+        
+        temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        vtaglist=(${temptag//-/ })
+        beta=${vtaglist[2]}
+        version=${vtaglist[1]}
+        if [ ${#beta} -gt 0 ]
+        then
+            version=${vtaglist[1]}-$beta
+        fi
+        version=${version#*v}
+        echo $version
+
+        export LIB_VERSION=$version
+        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_SoundTouch.podspec
+                
+        pod lib lint TIoTLinkKit_SoundTouch.podspec --verbose --allow-warnings --use-libraries
+        pod trunk push TIoTLinkKit_SoundTouch.podspec --verbose --allow-warnings --use-libraries
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
