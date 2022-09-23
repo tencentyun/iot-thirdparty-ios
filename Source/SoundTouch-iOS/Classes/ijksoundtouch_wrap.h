@@ -24,8 +24,8 @@
 
 #include <stdint.h>
 
-void* ijk_soundtouch_create();
-int ijk_soundtouch_translate(void *handle, short* data, float speed, float pitch, int len, int bytes_per_sample, int n_channel, int n_sampleRate);
-void ijk_soundtouch_destroy(void *handle);
+extern "C" void* ijk_soundtouch_create(float speed, int pitch, int n_channel, int n_sampleRate);
+extern "C" int ijk_soundtouch_translate(void *handle, short* data, int len, int bytes_per_sample, int n_channel);
+extern "C" void ijk_soundtouch_destroy(void *handle);
 
 #endif /* IJKSOUNDTOUCHWRAP_H */
