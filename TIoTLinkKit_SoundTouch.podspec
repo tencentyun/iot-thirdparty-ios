@@ -11,16 +11,24 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'tonychanchen@gmail.com' => 'tonychanchen@gmail.com' }
   s.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => s.version.to_s }
-
-  s.ios.deployment_target = '9.0'     
+  
+  s.ios.deployment_target = '9.0'
 #  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-all_load' }
 #  s.static_framework = true
 
-  s.source_files          = 'Source/SoundTouch-iOS/Classes/**/*'
-  s.vendored_libraries    = 'Source/SoundTouch-iOS/*.a'
+#  s.source_files          = 'Source/SoundTouch-iOS/Classes/**/*'
+#  s.vendored_libraries    = 'Source/SoundTouch-iOS/*.a'
+  s.vendored_frameworks   = 'Source/SoundTouch-iOS/SoundTouchiOS.framework'
 #  s.frameworks            = "NetworkExtension", "CoreGraphics", "SystemConfiguration", "Foundation", "UIKit"
 #  s.libraries             = 'c++', 'sqlite3', 'z'
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    
+    s.user_target_xcconfig = {
+        'GENERATE_INFOPLIST_FILE' => 'YES',
+        'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    }
 
+    s.pod_target_xcconfig = {
+        'GENERATE_INFOPLIST_FILE' => 'YES',
+        'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    }
 end
