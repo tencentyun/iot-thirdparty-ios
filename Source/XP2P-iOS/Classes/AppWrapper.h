@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.c16a2834";
+static const char * VIDEOSDKVERSION = "2.4.x+git.d41c01c7";
 
 typedef enum
 {
