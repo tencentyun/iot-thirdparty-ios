@@ -1,6 +1,0 @@
-framework module SoundTouchiOS {
-  umbrella header "SoundTouchiOS.h"
-
-  export *
-  module * { export * }
-}

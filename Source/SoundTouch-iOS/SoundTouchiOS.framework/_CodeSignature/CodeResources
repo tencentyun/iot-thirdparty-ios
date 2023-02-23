@@ -4,44 +4,22 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/SoundTouchiOS.h</key>
+		<key>Headers/TRAESoundTouch.h</key>
 		<data>
-		Rar9QXsSSkTe43ugWKRzcGldy6Y=
-		</data>
-		<key>Headers/ijksoundtouch_wrap.h</key>
-		<data>
-		pPyLtUrmfp/h79mIxqYhOoumNyw=
+		wpjU3Pj4DwA0Fz9j5ft3oxvf6Ck=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		FamTbrNkIf/n9/n2hXhnYbTS4yg=
-		</data>
-		<key>Modules/module.modulemap</key>
-		<data>
-		KbPDqysBU4xE3n+ZZITWnph8lWU=
+		IytQsc62YISLhRtWEoxtdcc5eow=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/SoundTouchiOS.h</key>
+		<key>Headers/TRAESoundTouch.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YQ20PI4rTJbkKrDckHyI0SDchYpV2bnweKB204UK5wo=
-			</data>
-		</dict>
-		<key>Headers/ijksoundtouch_wrap.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			iXHHMEtuqt9sOcEvcFp3cBMbVNFibvVIhqSqnZBiyok=
-			</data>
-		</dict>
-		<key>Modules/module.modulemap</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			nYak8mk3ysTxWBKPb791qrMAnTE21e2yRdYa4h5W+zM=
+			1gCN/iTMrxk4Zm/HEDzaTGQByeeB+XvVtHKPz6com38=
 			</data>
 		</dict>
 	</dict>
