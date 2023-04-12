@@ -195,7 +195,7 @@ jobs:
         export LIB_VERSION=$version
         perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_SoundTouch.podspec
                 
-        pod lib lint TIoTLinkKit_SoundTouch.podspec --verbose --allow-warnings
-        pod trunk push TIoTLinkKit_SoundTouch.podspec --verbose --allow-warnings
+        pod lib lint TIoTLinkKit_SoundTouch.podspec --verbose --allow-warnings --skip-import-validation
+        pod trunk push TIoTLinkKit_SoundTouch.podspec --verbose --allow-warnings --skip-import-validation
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}

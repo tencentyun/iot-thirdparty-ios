@@ -23,12 +23,12 @@ Pod::Spec.new do |s|
 #  s.libraries             = 'c++', 'sqlite3', 'z'
     
     s.user_target_xcconfig = {
-        'GENERATE_INFOPLIST_FILE' => 'YES',
+#        'GENERATE_INFOPLIST_FILE' => 'YES',
         'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
     }
 
     s.pod_target_xcconfig = {
-        'GENERATE_INFOPLIST_FILE' => 'YES',
+#        'GENERATE_INFOPLIST_FILE' => 'YES',
         'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
     }
 end
