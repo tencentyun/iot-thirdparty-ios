@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.c68c6b82";
+static const char * VIDEOSDKVERSION = "2.4.x+git.f7a613f6";
 
 typedef enum
 {
@@ -140,7 +140,6 @@ IPCLIBRARY_API int stopAvRecvService(const char *id, void *req);
  * @return 0 为成功
  */
 IPCLIBRARY_API int startService(const char *id, const char *product_id, const char *device_name);
-IPCLIBRARY_API int startServiceWithMode(const char *id, const char *product_id, const char *device_name, bool udpmode);
 
 /**
  * @brief 初始化xp2p服务
