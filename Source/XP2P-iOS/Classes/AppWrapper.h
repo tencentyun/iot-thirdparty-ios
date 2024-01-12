@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.45+git.c4f2fba2";
+static const char * VIDEOSDKVERSION = "2.4.x+git.48db6475";
 
 typedef enum
 {
@@ -292,6 +292,9 @@ IPCLIBRARY_API void startRecordPlayerStream(const char *id);
 IPCLIBRARY_API size_t getStreamBufSize(const char *id);
 
 IPCLIBRARY_API void setStunServerToXp2p(const char *server, uint16_t port);
+
+IPCLIBRARY_API void setContentDetail(const char *content, const char *detail);
+IPCLIBRARY_API const char* getContentData();
 #ifdef __cplusplus
 }
 #endif
