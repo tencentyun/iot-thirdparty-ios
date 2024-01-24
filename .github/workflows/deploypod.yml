@@ -199,3 +199,28 @@ jobs:
         pod trunk push TIoTLinkKit_SoundTouch.podspec --verbose --allow-warnings
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
+
+
+    - name: Deploy gvoice SDK
+      if: ${{contains(env.curr_tag, 'gvoice')}}
+      run: |
+        set -eo pipefail
+        
+        temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        vtaglist=(${temptag//-/ })
+        beta=${vtaglist[2]}
+        version=${vtaglist[1]}
+        if [ ${#beta} -gt 0 ]
+        then
+            version=${vtaglist[1]}-$beta
+        fi
+        version=${version#*v}
+        echo $version
+
+        export LIB_VERSION=$version
+        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_GVoiceSE.podspec
+                
+        pod lib lint TIoTLinkKit_GVoiceSE.podspec --verbose --allow-warnings
+        pod trunk push TIoTLinkKit_GVoiceSE.podspec --verbose --allow-warnings
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
