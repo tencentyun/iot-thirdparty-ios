@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.ddafcb82";
+static const char * VIDEOSDKVERSION = "2.4.x+git.6888711d";
 
 typedef enum
 {
@@ -42,6 +42,7 @@ typedef enum
     XP2PTypeCmdNOReturn      = 1007,  // 设备未返回app自定义信令
     XP2PTypeStreamEnd        = 1008,  // 设备停止推流，或者由于达到设备最大连接数，拒绝推流
     XP2PTypeDownloadEnd      = 1009,  // 设备停止推流，下载结束
+    XP2PTypeStreamRefush     = 1010,  // 设备拒绝推流，请求的devicename不一致
     XP2PTypeSaveFileOn       = 8000,  //获取保存音视频流开关状态
     XP2PTypeSaveFileUrl      = 8001   //获取音视频流保存路径
 } XP2PType;
