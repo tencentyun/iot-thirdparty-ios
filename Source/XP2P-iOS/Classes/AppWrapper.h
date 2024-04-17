@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.889200c8";
+static const char * VIDEOSDKVERSION = "2.4.x+git.f1ab58f4";
 
 typedef enum
 {
@@ -96,7 +96,7 @@ typedef char *(*device_data_recv_handle_t)(const char *id, uint8_t *recv_buf, si
  * @param device_data_handle: 设备端向App发送消息的回调
  * @return 无返回值
  */
-IPCLIBRARY_API void setUserCallbackToXp2p(av_recv_handle_t recv_handle, msg_handle_t msg_handle, device_data_recv_handle_t device_data_handle);
+IPCLIBRARY_API void setUserCallbackToXp2p(av_recv_handle_t recv_handle, msg_handle_t msg_handle, device_data_recv_handle_t device_data_handle, av_recv_handle_t reportdata_handle);
 
 /**
  * @brief 发送信令消息给camera设备并等待回复，同步阻塞方式
@@ -300,7 +300,6 @@ IPCLIBRARY_API size_t getStreamBufSize(const char *id);
 IPCLIBRARY_API void setStunServerToXp2p(const char *server, uint16_t port);
 
 IPCLIBRARY_API void setContentDetail(const char *content, const char *detail);
-IPCLIBRARY_API data_report_t getContentData();
 IPCLIBRARY_API const char* getUserID();
 #ifdef __cplusplus
 }
