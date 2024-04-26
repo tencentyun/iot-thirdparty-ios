@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.ad0455db";
+static const char * VIDEOSDKVERSION = "2.4.x+git.0009bf4d";
 
 typedef enum
 {
@@ -81,12 +81,14 @@ typedef enum
 
 typedef struct {
   unsigned char* report_buf;
-  size_t   report_size;
+  size_t    report_size;
+  uint64_t  xntp_size;
 } data_report_t;
 
 typedef const char *(*msg_handle_t)(const char *id, XP2PType type, const char *msg);
 typedef void (*av_recv_handle_t)(const char *id, uint8_t *recv_buf, size_t recv_len);
 typedef char *(*device_data_recv_handle_t)(const char *id, uint8_t *recv_buf, size_t recv_len);
+typedef void (*av_log_handle_t)(const char *id, data_report_t data_buf);
 
 /**
  * @brief 设置回调函数
@@ -299,7 +301,7 @@ IPCLIBRARY_API size_t getStreamBufSize(const char *id);
 
 IPCLIBRARY_API void setStunServerToXp2p(const char *server, uint16_t port);
 
-IPCLIBRARY_API void setContentDetail(const char *content, const char *detail, av_recv_handle_t reportdata_handle);
+IPCLIBRARY_API void setContentDetail(const char *content, const char *detail, av_log_handle_t reportdata_handle);
 IPCLIBRARY_API const char* getUserID();
 #ifdef __cplusplus
 }
