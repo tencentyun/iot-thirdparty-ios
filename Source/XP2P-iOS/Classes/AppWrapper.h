@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.745157e0";
+static const char * VIDEOSDKVERSION = "2.4.x+git.1029ed5a";
 
 typedef enum
 {
@@ -79,10 +79,14 @@ typedef enum
     XP2P_ERR_CLIENT_NULL = -1020      //从map中取出的client为空
 } XP2PErrCode;
 
-typedef struct {
+typedef struct data_report_t {
   unsigned char* report_buf;
   size_t    report_size;
-  uint64_t  xntp_size;
+  uint64_t  live_size;
+  uint64_t  voice_size;
+  const char *data_action;
+  const char *status;
+  const char *uniqueId;
 } data_report_t;
 
 typedef const char *(*msg_handle_t)(const char *id, XP2PType type, const char *msg);
