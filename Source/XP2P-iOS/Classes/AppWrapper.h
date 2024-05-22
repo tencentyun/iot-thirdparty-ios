@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.438b254e";
+static const char * VIDEOSDKVERSION = "2.4.x+git.f68c911d";
 
 typedef enum
 {
@@ -83,7 +83,7 @@ typedef struct data_report_t {
   unsigned char* report_buf;
   size_t    report_size;
   uint64_t  live_size;
-  uint64_t  voice_size;
+//  uint64_t  voice_size;
   const char *data_action;
   const char *status;
   const char *uniqueId;
