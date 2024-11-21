@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.2dd5707e";
+static const char * VIDEOSDKVERSION = "2.4.x+git.37f488df";
 
 typedef enum
 {
@@ -92,6 +92,7 @@ typedef struct data_report_t {
   uint64_t  appUpByte;
   uint64_t  appDownByte;
   const char *appConnectIp;
+  int errorcode;
 } data_report_t;
 
 typedef const char *(*msg_handle_t)(const char *id, XP2PType type, const char *msg);
