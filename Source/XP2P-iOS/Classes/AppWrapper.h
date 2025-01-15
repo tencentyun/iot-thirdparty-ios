@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.6d3b76c8";
+static const char * VIDEOSDKVERSION = "2.4.x+git.57d42e55";
 
 typedef enum
 {
@@ -95,6 +95,13 @@ typedef struct data_report_t {
   int errorcode;
 } data_report_t;
 
+typedef struct app_config_t {
+  const char *server;
+  const char *ip;
+  uint64_t  port;
+  XP2PProtocolType type;
+} app_config_t;
+
 typedef const char *(*msg_handle_t)(const char *id, XP2PType type, const char *msg);
 typedef void (*av_recv_handle_t)(const char *id, uint8_t *recv_buf, size_t recv_len);
 typedef char *(*device_data_recv_handle_t)(const char *id, uint8_t *recv_buf, size_t recv_len);
@@ -165,7 +172,7 @@ IPCLIBRARY_API int stopAvRecvService(const char *id, void *req);
  * @param sensor_timeout: 探测失败切换tcp的超时时间
  * @return 0 为成功
  */
-IPCLIBRARY_API int startService(const char *id, const char *product_id, const char *device_name, XP2PProtocolType protocol_type);
+IPCLIBRARY_API int startService(const char *id, const char *product_id, const char *device_name, app_config_t config);
 
 /**
  * @brief 初始化xp2p服务
