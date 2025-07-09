@@ -19,5 +19,5 @@ FOUNDATION_EXPORT const unsigned char GVoiceSEiOSVersionString[];
 @interface GVoiceSE : NSObject
 //model_path 传入模型文件路径
 + (int)voice_handle_open:(const char*)model_path; //返回-1初始化错误，0成功
-+ (void)voice_handle_process:(char *)pcmlocal ref:(char *)pcmref;
++ (void)voice_handle_process:(char *)pcmlocal ref:(char *)pcmref len:(int)len;
 @end
