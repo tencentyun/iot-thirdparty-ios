@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
   # 预编译框架配置 - 使用IoTVideoCloud.framework
   s.vendored_frameworks = 'IoTVideoCloud.framework'
   s.preserve_paths = 'IoTVideoCloud.framework'
+  s.public_header_files = 'IoTVideoCloud.framework/Headers/*.h'
 
   # 依赖配置
   s.dependency 'CocoaAsyncSocket', '7.6.5'
