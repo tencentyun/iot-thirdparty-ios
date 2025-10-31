@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IoTVideoCloudKit'
-  s.version          = ENV['LIB_VERSION'] || '1.0.0'
+  s.version          = ENV['LIB_VERSION'] || '1.0.1'
   s.summary          = '腾讯连连Video SDK是腾讯云物联网平台提供，应用开发厂商可通过该 SDK 快速搭建起 OEM 版本 APP，进行物联网音视频业务开发'
 
   s.description      = <<-DESC
@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
   # 预编译框架配置 - 使用IoTVideoCloud.framework
   s.vendored_frameworks = 'IoTVideoCloud.framework'
   s.preserve_paths = 'IoTVideoCloud.framework'
+  s.source_files='IoTVideoCloud.framework/Headers/*.h'
   s.public_header_files = 'IoTVideoCloud.framework/Headers/*.h'
 
   # 依赖配置
