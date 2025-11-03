@@ -28,8 +28,8 @@ Pod::Spec.new do |s|
   # s.preserve_paths = 'IoTVideoCloud.framework'
   # s.source_files = 'IoTVideoCloud.framework/Headers/*.h'
   # s.public_header_files = 'IoTVideoCloud.framework/Headers/*.h'
-  s.user_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '"IoTVideoCloud.framework/Headers"' }
-#  s.user_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/IoTVideoCloud/IoTVideoCloud.framework/Headers"' }
+  # s.user_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '"IoTVideoCloud.framework/Headers"' }
+  s.user_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/IoTVideoCloud/IoTVideoCloud.framework/Headers"' }
   
   # 关键配置：添加module_map以支持双引号引入头文件
   # s.module_map = 'IoTVideoCloud.framework/Modules/module.modulemap'
