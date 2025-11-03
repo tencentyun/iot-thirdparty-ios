@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   # 关键修改：使用GitHub仓库中的预编译framework
   # 注意：podspec文件应该放在 Specs/IoTVideoCloudKit/1.0.0/ 目录下
   s.source           = {
-    :http => "https://github.com/tencentyun/iot-thirdparty-ios/raw/master/Source/IoTVideoCloud-iOS/IoTVideoCloudKit-#{s.version}.zip",
+    :http => "https://github.com/tencentyun/iot-thirdparty-ios/raw/master/Source/IoTVideoCloud-iOS/IoTVideoCloud-#{s.version}.zip",
     :type => 'zip'
   }
 
