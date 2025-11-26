@@ -16,12 +16,12 @@ extern "C" {
 #  define IPCLIBRARY_API __declspec(dllimport)
 #endif
 #else
-#  define IPCLIBRARY_API
+#  define IPCLIBRARY_API __attribute__((visibility("default"))) __attribute__((used))
 #endif
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.1f7fc3b9";
+static const char * VIDEOSDKVERSION = "2.4.x+git.66741ab3";
 
 typedef enum
 {
