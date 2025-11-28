@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x+git.f2d77de1";
+static const char * VIDEOSDKVERSION = "2.4.x-fix+git.04df80da";
 
 typedef enum
 {
@@ -326,8 +326,6 @@ IPCLIBRARY_API const char* getUserID();
  * @brief 是否走双中转开关
  */
 IPCLIBRARY_API void setCrossStunTurn(bool enable);
-
-IPCLIBRARY_API app_config_t appGetDeviceConfig(const char *id, const char *product_id, const char *device_name, const char *app_key, const char *app_secret);
 #ifdef __cplusplus
 }
 #endif
