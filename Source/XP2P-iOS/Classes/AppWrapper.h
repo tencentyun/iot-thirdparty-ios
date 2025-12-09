@@ -21,7 +21,7 @@ extern "C" {
 
 #define MAX_SIZE_OF_PARAMS 3000
 
-static const char * VIDEOSDKVERSION = "2.4.x-jiegao+git.34a38fe5";
+static const char * VIDEOSDKVERSION = "2.4.x+git.0c4b1219";
 
 typedef enum
 {
@@ -173,7 +173,7 @@ IPCLIBRARY_API int stopAvRecvService(const char *id, void *req);
  * @param sensor_timeout: 探测失败切换tcp的超时时间
  * @return 0 为成功
  */
-IPCLIBRARY_API int startService(const char *id, const char *product_id, const char *device_name,const char *xp2p_info, app_config_t config);
+IPCLIBRARY_API int startService(const char *id, const char *product_id, const char *device_name, app_config_t config);
 
 /**
  * @brief 初始化xp2p服务
