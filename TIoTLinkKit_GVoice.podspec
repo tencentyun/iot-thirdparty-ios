@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name             = 'TIoTLinkKit_GVoiceSE'
-  s.version          = ENV['LIB_VERSION'] || '1.0.0'
+  s.name             = 'TIoTLinkKit_GVoice'
+  s.version          = ENV['LIB_VERSION'] || '1.1.2'
   s.summary          = '该仓库为方便个人仓库构建使用，如有其他需求还请从官网下载原SDK'
 
   s.description      = <<-DESC
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/tencentyun/iot-thirdparty-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'tonychanchen@gmail.com' => 'tonychanchen@gmail.com' }
-  s.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => 'gvoice-v1.1.2' }
   
   s.ios.deployment_target = '9.0'
 #  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-all_load' }

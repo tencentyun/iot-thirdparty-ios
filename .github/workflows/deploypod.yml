@@ -218,9 +218,9 @@ jobs:
         echo $version
 
         export LIB_VERSION=$version
-        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_GVoiceSE.podspec
+        perl -i -pe "s#.*s.source .*#\ts.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => \"$temptag\" }#g" TIoTLinkKit_GVoice.podspec
                 
-        pod lib lint TIoTLinkKit_GVoiceSE.podspec --verbose --allow-warnings
-        pod trunk push TIoTLinkKit_GVoiceSE.podspec --verbose --allow-warnings
+        pod lib lint TIoTLinkKit_GVoice.podspec --verbose --allow-warnings
+        pod trunk push TIoTLinkKit_GVoice.podspec --verbose --allow-warnings
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.IOT_COCOAPODS_TRUNK_TOKEN }}
