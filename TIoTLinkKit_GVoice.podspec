@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/tencentyun/iot-thirdparty-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'tonychanchen@gmail.com' => 'tonychanchen@gmail.com' }
-  s.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => 'gvoice-v1.1.2' }
+  s.source           = { :git => 'https://github.com/tencentyun/iot-thirdparty-ios.git', :tag => s.version.to_s }
   
   s.ios.deployment_target = '9.0'
 #  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-all_load' }
