@@ -20,7 +20,11 @@ Pod::Spec.new do |s|
   s.vendored_libraries    = 'Source/XP2P-iOS/*.a'
   s.frameworks            = "NetworkExtension", "CoreGraphics", "SystemConfiguration", "Foundation", "UIKit"
   s.libraries             = 'c++', 'sqlite3', 'z'
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.pod_target_xcconfig = { 
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
+    'BITCODE_GENERATION_MODE' => 'bitcode',
+    'OTHER_CFLAGS' => '-fembed-bitcode'
+  }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 end
