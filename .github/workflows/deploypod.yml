@@ -31,14 +31,28 @@ jobs:
         set -eo pipefail
         
         temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
-        vtaglist=(${temptag//-/ })
-        beta=${vtaglist[2]}
-        version=${vtaglist[1]}
-        if [ ${#beta} -gt 0 ]
-        then
-            version=${vtaglist[1]}-$beta
+        # 移除 -beta.* 后缀
+        clean_tag=${temptag%-beta*}
+        if [ "$temptag" = "$clean_tag" ]; then
+            clean_tag=$temptag  # 没有-beta后缀
         fi
-        version=${version#*v}
+        
+        # 获取组件名
+        component=${clean_tag%%-*}
+        # 获取组件名之后的部分
+        after_component=${clean_tag#*-}
+        
+        # 使用正则查找版本号模式 v数字.数字.x 或 v数字.数字.数字
+        if [[ $after_component =~ v[0-9]+\.[0-9]+\.[0-9x]+ ]]; then
+            version_part=${BASH_REMATCH[0]}
+            version_part=${version_part#v}  # 移除v前缀
+            version=$version_part
+        else
+            # 如果找不到标准版本号，使用最后一部分并移除v前缀
+            last_part=${after_component##*-}
+            version=${last_part#v}
+        fi
+        
         echo $version
 
         export LIB_VERSION=$version
@@ -57,14 +71,28 @@ jobs:
         set -eo pipefail
         
         temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
-        vtaglist=(${temptag//-/ })
-        beta=${vtaglist[2]}
-        version=${vtaglist[1]}
-        if [ ${#beta} -gt 0 ]
-        then
-            version=${vtaglist[1]}-$beta
+        # 移除 -beta.* 后缀
+        clean_tag=${temptag%-beta*}
+        if [ "$temptag" = "$clean_tag" ]; then
+            clean_tag=$temptag  # 没有-beta后缀
         fi
-        version=${version#*v}
+        
+        # 获取组件名
+        component=${clean_tag%%-*}
+        # 获取组件名之后的部分
+        after_component=${clean_tag#*-}
+        
+        # 使用正则查找版本号模式 v数字.数字.x 或 v数字.数字.数字
+        if [[ $after_component =~ v[0-9]+\.[0-9]+\.[0-9x]+ ]]; then
+            version_part=${BASH_REMATCH[0]}
+            version_part=${version_part#v}  # 移除v前缀
+            version=$version_part
+        else
+            # 如果找不到标准版本号，使用最后一部分并移除v前缀
+            last_part=${after_component##*-}
+            version=${last_part#v}
+        fi
+        
         echo $version
 
         export LIB_VERSION=$version
@@ -82,14 +110,28 @@ jobs:
         set -eo pipefail
         
         temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
-        vtaglist=(${temptag//-/ })
-        beta=${vtaglist[2]}
-        version=${vtaglist[1]}
-        if [ ${#beta} -gt 0 ]
-        then
-            version=${vtaglist[1]}-$beta
+        # 移除 -beta.* 后缀
+        clean_tag=${temptag%-beta*}
+        if [ "$temptag" = "$clean_tag" ]; then
+            clean_tag=$temptag  # 没有-beta后缀
         fi
-        version=${version#*v}
+        
+        # 获取组件名
+        component=${clean_tag%%-*}
+        # 获取组件名之后的部分
+        after_component=${clean_tag#*-}
+        
+        # 使用正则查找版本号模式 v数字.数字.x 或 v数字.数字.数字
+        if [[ $after_component =~ v[0-9]+\.[0-9]+\.[0-9x]+ ]]; then
+            version_part=${BASH_REMATCH[0]}
+            version_part=${version_part#v}  # 移除v前缀
+            version=$version_part
+        else
+            # 如果找不到标准版本号，使用最后一部分并移除v前缀
+            last_part=${after_component##*-}
+            version=${last_part#v}
+        fi
+        
         echo $version
 
         export LIB_VERSION=$version
@@ -107,14 +149,28 @@ jobs:
         set -eo pipefail
         
         temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
-        vtaglist=(${temptag//-/ })
-        beta=${vtaglist[2]}
-        version=${vtaglist[1]}
-        if [ ${#beta} -gt 0 ]
-        then
-            version=${vtaglist[1]}-$beta
+        # 移除 -beta.* 后缀
+        clean_tag=${temptag%-beta*}
+        if [ "$temptag" = "$clean_tag" ]; then
+            clean_tag=$temptag  # 没有-beta后缀
         fi
-        version=${version#*v}
+        
+        # 获取组件名
+        component=${clean_tag%%-*}
+        # 获取组件名之后的部分
+        after_component=${clean_tag#*-}
+        
+        # 使用正则查找版本号模式 v数字.数字.x 或 v数字.数字.数字
+        if [[ $after_component =~ v[0-9]+\.[0-9]+\.[0-9x]+ ]]; then
+            version_part=${BASH_REMATCH[0]}
+            version_part=${version_part#v}  # 移除v前缀
+            version=$version_part
+        else
+            # 如果找不到标准版本号，使用最后一部分并移除v前缀
+            last_part=${after_component##*-}
+            version=${last_part#v}
+        fi
+        
         echo $version
 
         export LIB_VERSION=$version
@@ -157,14 +213,28 @@ jobs:
         set -eo pipefail
         
         temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
-        vtaglist=(${temptag//-/ })
-        beta=${vtaglist[2]}
-        version=${vtaglist[1]}
-        if [ ${#beta} -gt 0 ]
-        then
-            version=${vtaglist[1]}-$beta
+        # 移除 -beta.* 后缀
+        clean_tag=${temptag%-beta*}
+        if [ "$temptag" = "$clean_tag" ]; then
+            clean_tag=$temptag  # 没有-beta后缀
         fi
-        version=${version#*v}
+        
+        # 获取组件名
+        component=${clean_tag%%-*}
+        # 获取组件名之后的部分
+        after_component=${clean_tag#*-}
+        
+        # 使用正则查找版本号模式 v数字.数字.x 或 v数字.数字.数字
+        if [[ $after_component =~ v[0-9]+\.[0-9]+\.[0-9x]+ ]]; then
+            version_part=${BASH_REMATCH[0]}
+            version_part=${version_part#v}  # 移除v前缀
+            version=$version_part
+        else
+            # 如果找不到标准版本号，使用最后一部分并移除v前缀
+            last_part=${after_component##*-}
+            version=${last_part#v}
+        fi
+        
         echo $version
 
         export LIB_VERSION=$version
@@ -182,14 +252,28 @@ jobs:
         set -eo pipefail
         
         temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
-        vtaglist=(${temptag//-/ })
-        beta=${vtaglist[2]}
-        version=${vtaglist[1]}
-        if [ ${#beta} -gt 0 ]
-        then
-            version=${vtaglist[1]}-$beta
+        # 移除 -beta.* 后缀
+        clean_tag=${temptag%-beta*}
+        if [ "$temptag" = "$clean_tag" ]; then
+            clean_tag=$temptag  # 没有-beta后缀
         fi
-        version=${version#*v}
+        
+        # 获取组件名
+        component=${clean_tag%%-*}
+        # 获取组件名之后的部分
+        after_component=${clean_tag#*-}
+        
+        # 使用正则查找版本号模式 v数字.数字.x 或 v数字.数字.数字
+        if [[ $after_component =~ v[0-9]+\.[0-9]+\.[0-9x]+ ]]; then
+            version_part=${BASH_REMATCH[0]}
+            version_part=${version_part#v}  # 移除v前缀
+            version=$version_part
+        else
+            # 如果找不到标准版本号，使用最后一部分并移除v前缀
+            last_part=${after_component##*-}
+            version=${last_part#v}
+        fi
+        
         echo $version
 
         export LIB_VERSION=$version
@@ -207,14 +291,28 @@ jobs:
         set -eo pipefail
         
         temptag=$(git describe --tags `git rev-list --tags --max-count=1`)
-        vtaglist=(${temptag//-/ })
-        beta=${vtaglist[2]}
-        version=${vtaglist[1]}
-        if [ ${#beta} -gt 0 ]
-        then
-            version=${vtaglist[1]}-$beta
+        # 移除 -beta.* 后缀
+        clean_tag=${temptag%-beta*}
+        if [ "$temptag" = "$clean_tag" ]; then
+            clean_tag=$temptag  # 没有-beta后缀
         fi
-        version=${version#*v}
+        
+        # 获取组件名
+        component=${clean_tag%%-*}
+        # 获取组件名之后的部分
+        after_component=${clean_tag#*-}
+        
+        # 使用正则查找版本号模式 v数字.数字.x 或 v数字.数字.数字
+        if [[ $after_component =~ v[0-9]+\.[0-9]+\.[0-9x]+ ]]; then
+            version_part=${BASH_REMATCH[0]}
+            version_part=${version_part#v}  # 移除v前缀
+            version=$version_part
+        else
+            # 如果找不到标准版本号，使用最后一部分并移除v前缀
+            last_part=${after_component##*-}
+            version=${last_part#v}
+        fi
+        
         echo $version
 
         export LIB_VERSION=$version
